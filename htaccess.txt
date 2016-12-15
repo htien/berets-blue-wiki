@@ -1,0 +1,25 @@
+# Requirements if using PHP 5.x.
+# <IfModule mod_php5.c>
+#   php_value max_execution_time 60
+#   php_value max_input_vars 4000
+#   php_value memory_limit 128M
+#   php_value post_max_size 30M
+#   php_value upload_max_filesize 10M
+# </IfModule>
+
+# BEGIN WordPress
+# END WordPress
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /a/
+
+  RewriteCond %{HTTPS} off
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301,NC]
+
+  RewriteRule ^index\.php$ - [L]
+
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /a/index.php [L]
+</IfModule>
