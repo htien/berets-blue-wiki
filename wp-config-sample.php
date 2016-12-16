@@ -79,6 +79,11 @@ $table_prefix  = 'wp_';
  */
 define('WP_DEBUG', false);
 
+/**
+ * Do stuff!
+ */
+define('WP_MEMORY_LIMIT', '96M');
+
 #define('FORCE_SSL_ADMIN', true);
 
 #define('WP_ALLOW_MULTISITE', true);

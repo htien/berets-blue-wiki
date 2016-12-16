@@ -7,8 +7,14 @@
 #   php_value upload_max_filesize 10M
 # </IfModule>
 
+Options -Indexes
+
 # BEGIN WordPress
 # END WordPress
+
+<Files "htaccess.txt">
+  Require all denied
+</Files>
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
@@ -18,8 +24,12 @@
   RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301,NC]
 
   RewriteRule ^index\.php$ - [L]
-
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule . /a/index.php [L]
+  RewriteRule . index.php [L]
+
+  RewriteRule ^wp-reserved(/|$) - [F]
+
 </IfModule>
+
+SetEnv SERVER_ADMIN hello@tnguyen.net
