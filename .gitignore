@@ -1,5 +1,6 @@
 *.log
 wp-config.php
+
 wp-content/advanced-cache.php
 wp-content/backup-db/
 wp-content/backups/
@@ -8,6 +9,15 @@ wp-content/cache/
 wp-content/upgrade/
 wp-content/uploads/
 wp-content/wp-cache-config.php
+
+var/advanced-cache.php
+var/backup-db/
+var/backups/
+var/blogs.dir/
+var/cache/
+var/upgrade/
+var/uploads/
+var/wp-cache-config.php
 
 /.htaccess
 /sitemap.xml
